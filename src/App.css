@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  
+  /* Bem Beauty Professional Brand Colors */
+  --bem-dark: #0D181C;
+  --bem-cream: #D9C0AA;
+  --bem-caramel: #9D4916;
+  --bem-blue-light: #A6B8C1;
+  --bem-blue-dark: #254C5A;
+  
+  /* Theme Colors using Brand Palette */
+  --background: #f9f5f2;
+  --foreground: var(--bem-dark);
+  --card: #ffffff;
+  --card-foreground: var(--bem-dark);
+  --popover: #ffffff;
+  --popover-foreground: var(--bem-dark);
+  --primary: var(--bem-caramel);
+  --primary-foreground: var(--bem-cream);
+  --secondary: var(--bem-blue-light);
+  --secondary-foreground: var(--bem-dark);
+  --muted: var(--bem-cream);
+  --muted-foreground: var(--bem-blue-dark);
+  --accent: var(--bem-caramel);
+  --accent-foreground: var(--bem-cream);
+  --destructive: #dc2626;
+  --border: #e5e7eb;
+  --input: #f3f4f6;
+  --ring: var(--bem-caramel);
+  --chart-1: var(--bem-caramel);
+  --chart-2: var(--bem-blue-light);
+  --chart-3: var(--bem-blue-dark);
+  --chart-4: var(--bem-cream);
+  --chart-5: var(--bem-dark);
+  --sidebar: var(--bem-cream);
+  --sidebar-foreground: var(--bem-dark);
+  --sidebar-primary: var(--bem-caramel);
+  --sidebar-primary-foreground: var(--bem-cream);
+  --sidebar-accent: var(--bem-blue-light);
+  --sidebar-accent-foreground: var(--bem-dark);
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: var(--bem-caramel);
+}
+
+.dark {
+  --background: var(--bem-dark);
+  --foreground: var(--bem-cream);
+  --card: var(--bem-blue-dark);
+  --card-foreground: var(--bem-cream);
+  --popover: var(--bem-blue-dark);
+  --popover-foreground: var(--bem-cream);
+  --primary: var(--bem-caramel);
+  --primary-foreground: var(--bem-cream);
+  --secondary: var(--bem-blue-dark);
+  --secondary-foreground: var(--bem-cream);
+  --muted: var(--bem-blue-dark);
+  --muted-foreground: var(--bem-blue-light);
+  --accent: var(--bem-caramel);
+  --accent-foreground: var(--bem-cream);
+  --destructive: #ef4444;
+  --border: rgba(166, 184, 193, 0.2);
+  --input: rgba(166, 184, 193, 0.1);
+  --ring: var(--bem-caramel);
+  --chart-1: var(--bem-caramel);
+  --chart-2: var(--bem-blue-light);
+  --chart-3: var(--bem-cream);
+  --chart-4: var(--bem-blue-dark);
+  --chart-5: #ffffff;
+  --sidebar: var(--bem-dark);
+  --sidebar-foreground: var(--bem-cream);
+  --sidebar-primary: var(--bem-caramel);
+  --sidebar-primary-foreground: var(--bem-cream);
+  --sidebar-accent: var(--bem-blue-dark);
+  --sidebar-accent-foreground: var(--bem-cream);
+  --sidebar-border: rgba(166, 184, 193, 0.2);
+  --sidebar-ring: var(--bem-caramel);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Typography Classes */
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Custom Utility Classes */
+.text-bem-dark { color: var(--bem-dark); }
+.text-bem-cream { color: var(--bem-cream); }
+.text-bem-caramel { color: var(--bem-caramel); }
+.text-bem-blue-light { color: var(--bem-blue-light); }
+.text-bem-blue-dark { color: var(--bem-blue-dark); }
+
+.bg-bem-dark { background-color: var(--bem-dark); }
+.bg-bem-cream { background-color: var(--bem-cream); }
+.bg-bem-caramel { background-color: var(--bem-caramel); }
+.bg-bem-blue-light { background-color: var(--bem-blue-light); }
+.bg-bem-blue-dark { background-color: var(--bem-blue-dark); }
+
+.border-bem-caramel { border-color: var(--bem-caramel); }
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
